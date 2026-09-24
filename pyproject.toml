@@ -1,0 +1,40 @@
+    [build-system]
+    requires = ["hatchling"]
+    build-backend = "hatchling.build"
+
+    [project]
+    name = "deprecated-api"
+    version = "0.1.0"
+    description = "AI/Data Science project."
+    readme = "README.md"
+    requires-python = ">=3.12"
+    dependencies = [
+    "matplotlib",
+    "numpy",
+    "pandas",
+]
+
+    [dependency-groups]
+    dev = [
+        "ipykernel",
+    "pytest",
+    "ruff",
+    ]
+
+    [tool.hatch.build.targets.wheel]
+    packages = ["deprecated_api"]
+
+    [tool.pytest.ini_options]
+    testpaths = ["tests"]
+
+    [tool.ruff]
+    line-length = 100
+    target-version = "py312"
+
+    [tool.ruff.lint]
+    select = ["E", "F", "I", "UP"]
+
+    [tool.nbflow]
+    kernel_name = "deprecated_api"
+    kernel_display_name = "Python (deprecated-api)"
+    kaggle_include = ["deprecated_api"]

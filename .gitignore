@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Project environment and secrets
+.venv/
+.env
+
+# Local notebook workflow
+.notebook/
+.ipynb_checkpoints/
+*.executed.ipynb
+
+# Local/generated data
+data/external/*
+data/interim/*
+data/processed/*
+data/raw/*
+!data/external/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!data/raw/.gitkeep
+
+# Generated models and figures
+models/*
+reports/figures/*
+!models/.gitkeep
+!reports/figures/.gitkeep
+
+# OS/editor
+.DS_Store
