@@ -24,6 +24,7 @@ data/raw/*
 !data/raw/.gitkeep
 
 # Generated models and figures
+artifacts/
 models/*
 reports/figures/*
 !models/.gitkeep

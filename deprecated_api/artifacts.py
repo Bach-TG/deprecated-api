@@ -13,10 +13,15 @@ def stage_dir(stage: str) -> Path:
 
 
 def input_roots() -> list[Path]:
-    """Return attached Kaggle input roots, or the local data directory."""
+    """Return possible Kaggle artifact roots, or the local data directory.
+
+    Kaggle input layouts vary: datasets can be directly under ``/kaggle/input``
+    or nested, for example ``/kaggle/input/datasets/<owner>/<slug>``. Discover
+    directories instead of relying on mount names or a specific layout.
+    """
     if not IS_KAGGLE:
         return [INPUT_DIR]
-    return sorted(path for path in INPUT_DIR.iterdir() if path.is_dir())
+    return [INPUT_DIR, *(path for path in INPUT_DIR.rglob("*") if path.is_dir())]
 
 
 def find_input(relative_path: str | Path, source_hint: str | None = None) -> Path:

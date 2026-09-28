@@ -14,6 +14,14 @@
     "pandas",
 ]
 
+[project.optional-dependencies]
+experiments = [
+    "accelerate",
+    "google-genai",
+    "torch",
+    "transformers",
+]
+
     [dependency-groups]
     dev = [
         "ipykernel",
@@ -30,6 +38,8 @@
     [tool.ruff]
     line-length = 100
     target-version = "py312"
+    # Supplied legacy monolith is retained for provenance, not an active stage.
+    extend-exclude = ["notebooks/share-deapi.ipynb"]
 
     [tool.ruff.lint]
     select = ["E", "F", "I", "UP"]
